@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="color/default.css" rel="stylesheet">
+<link rel="shortcut icon" href="img/favicon.ico">
+<title>
+Territory Battles - Phase {{ phase }}
+</title>
+</head>
+<body>
+<h1>P{{ phase }} opens at 17:00 UTC. {% block tldr %}{% endblock %}</h1>
+{% block goals %}{% endblock %}
+{% block strat %}{% endblock %}
+<p>If you have any questions please ask any of the officers, Rhy, or bronn in #territory-battles</p>
+<table>
+{% if phase is greaterthan 2 %}
+ <tr>
+  <th colspan='3' align='left'>
+   Available ship counts for Phase 4
+  </th>
+ </tr>
+ <tr>
+  <td colspan='3'>
+   <hr/>
+  </td>
+ </tr>
+{% for line in shiplist %}
+ <tr>
+  <td><a href="/ship/{{ line[0]|urlencode }}/phase/4">{{ line[0] }}</a></td>
+ {% if line[1] is greaterthan 12 %}
+  </td><td align='right'>{{ line[1] }}</td><td>&nbsp;</td>
+ {% elif line[1] is greaterthan 6 %}
+  <td align='right' bgcolor='yellow'>{{ line[1] }}</td><td>&nbsp;</td>
+ {% elif line[1] is greaterthan 0 %}
+  <td align='right' bgcolor='orange'>{{ line[1] }}</td><td>&nbsp;</td>
+ {% else %}
+  <td align='right' bgcolor='red'>{{ line[1] }}</td><td><b>Platoons containing this ship cannot be completed.</b></td>
+ {% endif %}
+ </tr>
+{% endfor %}
+{% endif %}
+<tr>
+  <td colspan='3'>
+   &nbsp;
+  </td>
+</tr>
+<tr>
+  <th colspan='3' align="left">
+   Available character counts for Phase 4
+  </th>
+ </tr>
+ <tr>
+  <td colspan='3'>
+   <hr/>
+  </td>
+ </tr>
+{% for line in charlist %}
+ <tr>
+ {% if line[1] is greaterthan 24 %}
+  <td>{{ line[0] }}</td><td align='right'>{{ line[1] }}</td><td>&nbsp;</td>
+ {% elif line[1] is greaterthan 12 %}
+  <td>{{ line[0] }}</td><td align='right' bgcolor='yellow'>{{ line[1] }}</td><td>&nbsp;</td>
+ {% elif line[1] is greaterthan 0 %}
+  <td>{{ line[0] }}</td><td align='right' bgcolor='orange'>{{ line[1] }}</td><td>&nbsp;</td>
+ {% else %}
+  <td>{{ line[0] }}</td><td align='right' bgcolor='red'>{{ line[1] }}</td><td><b>Platoons containing this character cannot be completed.</b></td>
+ {% endif %}
+ </tr>
+{% endfor %}
+</table>
+<br/>
+<br/>
+<table>
+ <tr>
+  <th colspan='3' align='left'>
+   Platoon Suggestions
+  </th>
+ </tr>
+ <tr>
+  <td colspan='3'>
+   <hr/>
+  </td>
+ </tr>
+{% for user, character_dict in charreport|dictsort %}
+ <tr>
+  <th colspan='3' align='left'>
+   {{ user }}
+  </th>
+ </tr>
+   {% for character, value in character_dict|dictsort  %}
+ <tr>
+  <td>
+   &nbsp;&nbsp;&nbsp;&nbsp;
+  </td>
+  <td>
+   {{ character }}
+  </td>
+  <td>
+   {{ value }}
+  </td>
+ </tr>
+   {% endfor %}
+{% endfor %}
+</table>
+</body>
+</html>
