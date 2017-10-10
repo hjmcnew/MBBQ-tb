@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block tldr %}</br>Hold combat until 19:00 UTC.</br>Hold deployments until 23:00 UTC{% endblock %}
 {% block goals %}
-<p><b>Goals for P5:</b> Complete 4/6 in all platoons, 2* the top area, 1* the middle area, and 2* the bottom area.</p>
+<p><b>Goals for P{{ phase }}:</b> Complete 4/6 in all platoons, 2* the top area, 1* the middle area, and 2* the bottom area.</p>
 {% endblock %}
 {% block strat %}
-<p><b>P5 order of operations:</b> Platoons, special combat, normal combat, deployment.</p>
-<p><b>Platoons (P5):</b> Assign as many characters to platoons as you can without affecting your Combat missions. If you see your name in the list below for a needed character, please platoon that character. <b>The suggestions may not cover all platoons. You may need to platoon additional characters.</b> See #territory-battles for specific platoon advice prior to 20:00 UTC.</p>
+<p><b>P{{ phase }} order of operations:</b> Platoons, special combat, normal combat, deployment.</p>
+<p><b>Platoons (P{{ phase }}):</b> Assign as many characters to platoons as you can without affecting your Combat missions. If you see your name in the list below for a needed character, please platoon that character. <b>The suggestions may not cover all platoons. You may need to platoon additional characters.</b> See #territory-battles for specific platoon advice prior to 20:00 UTC.</p>
 <h3>Hold all combat for 2 hours, until 19:00 UTC.</h3>
-<p><b>Combat (P5):</b> Complete the special combat mission requiring CLS.
-<p><b>Combat (P5):</b> Complete all the combat missions. <b>NB:</b> In the middle area there is a combat mission that requires HRScout, and a combat mission that requires Phoenix</p>
+<p><b>Combat (P{{ phase }}):</b> Complete the special combat mission requiring CLS.
+<p><b>Combat (P{{ phase }}):</b> Complete all the combat missions. <b>NB:</b> In the middle area there is a combat mission that requires HRScout, and a combat mission that requires Phoenix</p>
 <h3>Hold deployments for 6 hours, until 23:00 UTC.</h3>
-<p><b>Deployment (P5):</b> Deploy all your ships. Then deploy all your characters to the bottom area until we hit 2*. Then deploy to the middle area.</p>
+<p><b>Deployment (P{{ phase }}):</b> Deploy all your ships. Then deploy all your characters to the bottom area until we hit 2*. Then deploy to the middle area.</p>
 {% endblock %}

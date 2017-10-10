@@ -18,7 +18,7 @@ Territory Battles - Phase {{ phase }}
 {% if phase is greaterthan 2 %}
  <tr>
   <th colspan='3' align='left'>
-   Available ship counts for Phase 4
+   Available ship counts for Phase {{ phase }}
   </th>
  </tr>
  <tr>
@@ -28,7 +28,7 @@ Territory Battles - Phase {{ phase }}
  </tr>
 {% for line in shiplist %}
  <tr>
-  <td><a href="/ship/{{ line[0]|urlencode }}/phase/4">{{ line[0] }}</a></td>
+  <td><a href="/ship/{{ line[0]|urlencode }}/phase/{{ phase }}">{{ line[0] }}</a></td>
  {% if line[1] is greaterthan 12 %}
   </td><td align='right'>{{ line[1] }}</td><td>&nbsp;</td>
  {% elif line[1] is greaterthan 6 %}
@@ -48,7 +48,7 @@ Territory Battles - Phase {{ phase }}
 </tr>
 <tr>
   <th colspan='3' align="left">
-   Available character counts for Phase 4
+   Available character counts for Phase {{ phase }}
   </th>
  </tr>
  <tr>
